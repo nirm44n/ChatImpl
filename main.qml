@@ -1,10 +1,16 @@
 import QtQuick 2.9
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.3
+import Coding.Headers.chatserver 1.0
 
 
 
 Window {
+
+    ChatServer{
+        id: cs
+    }
+
     visible: true
     width: 640
     height: 480
@@ -46,10 +52,19 @@ Window {
         width: 95
         height: 35
         text: qsTr("Send")
-        onClicked: {
-            print("It Works")
-        }
 
+
+    }
+
+    Connections {
+        target: button
+
+        onClicked: {
+            var text = cs.nirmaanUpdate(textInput.text)
+            textArea1.text = text;
+            textArea.text = text;
+            textInput.clear();
+        }
     }
 
     Button {
@@ -59,8 +74,16 @@ Window {
         width: 95
         height: 35
         text: qsTr("Send")
-        onClicked: {
-            print("It Works")
+
+    }
+
+    Connections {
+        target: button1
+        onClicked:{
+            var text = cs.codeChallengeUpdate(textInput3.text)
+            textArea1.text = text;
+            textArea.text = text;
+            textInput3.clear();
         }
     }
 
