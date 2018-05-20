@@ -7,6 +7,7 @@ import Coding.Headers.chatserver 1.0
 
 Window {
 
+    //QT Component for C++ Object
     ChatServer{
         id: cs
     }
